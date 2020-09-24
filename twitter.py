@@ -11,12 +11,25 @@ import mlbgame
 #auth.set_access_token(access_token, access_token_secret)
 #twApi = tweepy.API(auth)
 
-def main:
+def main():
     today = datetime.date.today()
-    daySox = mlbgame.day(today.year, today.month, today.day, home='White Sox', away='White Sox')
+    daySox = mlbgame.day(today.year, today.month, 23, home='White Sox', away='White Sox')
     dayCubs = mlbgame.day(today.year, today.month, today.day, home='Cubs', away='Cubs')
-    soxWin = true
-    cubsLose = true
-    if daySox && dayCubs:
+    soxWin = 0
+    cubsLose = 0
+    if daySox and dayCubs:
+        soxWin = 1
+        cubsLose = 1
         for game in daySox:
-            
+            if game.game_status != 'FINAL' or game.w_team != 'White Sox':
+                soxWin = 0
+        
+        for game in dayCubs:
+            if game.game_status != 'FINAL' or game.w_team == 'Cubs':
+                cubsLose = 0
+
+    if soxWin == 1 and cubsLose == 1:
+
+
+
+main()
