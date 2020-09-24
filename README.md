@@ -3,3 +3,6 @@ A simple twitter bot that tweets today was a good day if the White Sox win and t
 
 ## Implementation
 This bot was made using a python script that runs daily using www.pythonanywhere.com
+
+## Creating your own bot
+Feel free to use this as a template for you own twitter bot
