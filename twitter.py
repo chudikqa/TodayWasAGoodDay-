@@ -1,15 +1,15 @@
-#import tweepy
+import tweepy
 import datetime
 import mlbgame
 
-#consumer_key = 
-#consumer_secret = 
-#access_token = 
-#access_token_secret =
+consumer_key = NOTCONSUMERKEY
+consumer_secret = NOTCONSUMERSECRET
+access_token = NOTACCESSTOKEN
+access_token_secret = NOTACCESSTOKENSECRET
 
-#auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
-#auth.set_access_token(access_token, access_token_secret)
-#twApi = tweepy.API(auth)
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.set_access_token(access_token, access_token_secret)
+twApi = tweepy.API(auth)
 
 def main():
     today = datetime.date.today()
@@ -29,7 +29,10 @@ def main():
                 cubsLose = 0
 
     if soxWin == 1 and cubsLose == 1:
+        tweet = "Today was a good day, the Sox won and the Cubs lost"
+        twApi.update_status(tweetString)
 
 
 
-main()
+if __name__ == "__main__":
+    main()
