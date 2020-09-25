@@ -1,6 +1,7 @@
 import tweepy
 import datetime
 import mlbgame
+from dateutil import tz
 
 consumer_key = NOTCONSUMERKEY
 consumer_secret = NOTCONSUMERSECRET
@@ -12,8 +13,9 @@ auth.set_access_token(access_token, access_token_secret)
 twApi = tweepy.API(auth)
 
 def main():
-    today = datetime.date.today()
-    daySox = mlbgame.day(today.year, today.month, 23, home='White Sox', away='White Sox')
+    cst = tz.gettz('America/Chicago')
+    today = datetime.datetime.now(cst)
+    daySox = mlbgame.day(today.year, today.month, today.day, home='White Sox', away='White Sox')
     dayCubs = mlbgame.day(today.year, today.month, today.day, home='Cubs', away='Cubs')
     soxWin = 0
     cubsLose = 0
