@@ -32,7 +32,7 @@ def main():
 
     if soxWin == 1 and cubsLose == 1:
         tweet = "Today was a good day, the Sox won and the Cubs lost"
-        twApi.update_status(tweetString)
+        twApi.update_status(tweet)
 
 
 
